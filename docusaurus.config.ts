@@ -71,6 +71,7 @@ const config: Config = {
           label: 'Tutorial',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
+        {type: 'search', position: 'left'}, 
         {
           href: 'https://github.com/facebook/docusaurus',
           label: 'GitHub',
@@ -128,6 +129,7 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
+  plugins: [require.resolve('docusaurus-lunr-search')],
 };
 
 export default config;
