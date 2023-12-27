@@ -35,6 +35,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          routeBasePath: '/articles',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -66,11 +67,17 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'commandsSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Helpful Commands',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        {
+          type: 'docSidebar',
+          sidebarId: 'resourcesSidebar',
+          position: 'left',
+          label: 'Helpful Resources',
+        },
+        // {to: '/blog', label: 'Blog', position: 'left'}, // uncomment if blog is ever desired
         {type: 'search', position: 'left'}, 
         {
           href: 'https://github.com/facebook/docusaurus',
