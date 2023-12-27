@@ -1,41 +1,16 @@
-# Website
+Skills and Interests
+- 💻 Experience in React, Next.js, Node.js, Angular, and TypeScript
+- 🌱 Currently learning C#/.NET, Kubernetes, and Kafka
+- 💡 Interested in Rust ( 🦀 ) and Go ( [<img src="./gopher.png" height="18">](#) )
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+### [View Some of My Projects](./PROJECTS.md)
 
-### Installation
+Some of the personal projects that I've recently worked on or am currently working on
 
-```
-$ yarn
-```
+### [List of Helpful Commands I Forget Everyday](https://github.com/JayMartMedia/helpful-commands)
 
-### Local Development
+Commands and keybinds for different software that I just can't seem to remember
 
-```
-$ yarn start
-```
+### [List of Resources I Have Found Helpful](https://github.com/JayMartMedia/helpful-resources)
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
-
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+Quality articles, videos, and documentation that I have found helpful while learning various things or completing tasks
