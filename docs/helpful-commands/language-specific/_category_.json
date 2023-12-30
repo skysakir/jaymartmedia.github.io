@@ -1,3 +1,6 @@
 {
-    "label": "Language Specific"
+    "label": "Language Specific",
+    "link": {
+        "type": "generated-index"
+    }
 }

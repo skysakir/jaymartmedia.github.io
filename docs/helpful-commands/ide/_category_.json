@@ -1,3 +1,6 @@
 {
-    "label": "IDE/Text Editor"
+    "label": "IDE/Text Editor",
+    "link": {
+        "type": "generated-index"
+    }
 }
