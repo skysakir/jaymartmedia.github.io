@@ -26,7 +26,7 @@ this can be used to manually trigger a cronjob
 
 JQ is a CLI tool that can be used to filter/format json. It can be used to select specific values from json output from the `kubectl get <resource>` command.
 
-See [my notes on jq for more info](./jq)
+See [my notes on jq for more info](../cli/jq)
 
 ### Get all images for a pod
 

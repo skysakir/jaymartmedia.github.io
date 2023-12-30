@@ -4,7 +4,7 @@ JQ is a command line tool to filter/format json.
 
 ## Kubernetes
 
-JQ is often used to parse the output from kubectl commands, for examples of that, refer to [my notes on Kubenetes](./kubernetes).
+JQ is often used to parse the output from kubectl commands, for examples of that, refer to [my notes on Kubenetes](../containerization/kubernetes).
 
 ## Examples
 
