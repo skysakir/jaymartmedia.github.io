@@ -1,3 +1,6 @@
 {
-    "label": "Containerization"
+    "label": "Containerization",
+    "link": {
+        "type": "generated-index"
+    }
 }

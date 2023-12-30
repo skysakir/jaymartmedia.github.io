@@ -1,3 +1,6 @@
 {
-    "label": "OS"
+    "label": "OS",
+    "link": {
+        "type": "generated-index"
+    }
 }
