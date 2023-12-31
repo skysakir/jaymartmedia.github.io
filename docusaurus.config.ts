@@ -1,5 +1,5 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
@@ -16,7 +16,7 @@ const config: Config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'jaymartmedia', // Usually your GitHub org/user name.
-  projectName: 'jaymartmedia', // Usually your repo name.
+  projectName: 'jaymartmedia.github.io', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -39,14 +39,14 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/jaymartmedia/jaymartmedia/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/jaymartmedia/jaymartmedia.github.io/tree/main',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/jaymartmedia/jaymartmedia/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/jaymartmedia/jaymartmedia.github.io/tree/main',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -78,9 +78,9 @@ const config: Config = {
           label: 'Helpful Resources',
         },
         // {to: '/blog', label: 'Blog', position: 'left'}, // uncomment if blog is ever desired
-        {type: 'search', position: 'left'}, 
+        { type: 'search', position: 'left' },
         {
-          href: 'https://github.com/jaymartmedia/jaymartmedia',
+          href: 'https://github.com/jaymartmedia/jaymartmedia.github.io',
           label: 'GitHub',
           position: 'right',
         },
@@ -90,44 +90,13 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Sections',
-          items: [
-            {
-              label: 'Helpful Commands',
-              to: '/articles/helpful-commands',
-            },
-          ],
+          label: 'Helpful Commands',
+          to: '/articles/helpful-commands',
         },
         {
-          title: 'Community',
-          items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/jaymartmedia/jaymartmedia',
-            },
-          ],
-        },
+          label: 'Helpful Resources',
+          to: '/articles/helpful-resources',
+        }
       ],
       copyright: `Copyright © ${new Date().getFullYear()}, built with Docusaurus.`,
     },
