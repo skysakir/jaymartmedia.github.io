@@ -62,7 +62,7 @@ const config: Config = {
       title: 'JayMartMedia',
       logo: {
         alt: 'Site Logo',
-        src: 'img/logo.svg',
+        src: 'img/jay-cropped.png',
       },
       items: [
         {
