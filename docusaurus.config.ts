@@ -77,7 +77,7 @@ const config: Config = {
           position: 'left',
           label: 'Helpful Resources',
         },
-        // {to: '/blog', label: 'Blog', position: 'left'}, // uncomment if blog is ever desired
+        {to: '/blog', label: 'Blog', position: 'left'},
         { type: 'search', position: 'left' },
         {
           href: 'https://github.com/jaymartmedia/jaymartmedia.github.io',
@@ -96,6 +96,10 @@ const config: Config = {
         {
           label: 'Helpful Resources',
           to: '/articles/helpful-resources',
+        },
+        {
+          label: 'Blog',
+          to: '/blog',
         }
       ],
       copyright: `Copyright © ${new Date().getFullYear()}, built with Docusaurus.`,
