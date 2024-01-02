@@ -25,7 +25,7 @@ export default function Home(): JSX.Element {
         <div className="text--center padding-horiz--md container">
           <Heading as='h1'>{siteConfig.title}</Heading>
           <p>
-            This site contains helpful commands and resources that I have found
+            This site contains resources that I have found
             helpful throughout my career. The blog portion of this site contains
             text companions to my YouTube videos, as well as other various blog
             posts. This information was initially posted in public Github repos,
