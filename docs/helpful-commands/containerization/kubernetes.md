@@ -22,6 +22,35 @@ this can be used to manually trigger a cronjob
 
 `kubectl create job --from=cronjob/<cronjob name> <job name>`
 
+## KIND
+
+[KIND](https://kind.sigs.k8s.io/) stands for Kubernetes IN Docker. Kind is a tool that creates a development Kubernetes cluster inside of Docker quickly and easily. KIND also allows local multi-node setups.
+
+`choco install kind` - Use Chocolatey to install kind on Windows
+
+`kind create cluster --name my-kind-cluster` - Create a cluster
+
+`kubectl config get-contexts` - List clusters
+
+`kubectl config use-context {name of context}` - Switch to the KIND cluster
+
+`kind delete cluster --name my-kind-cluster` - Delete the KIND cluster
+
+## Configuring a KIND cluster
+KIND also allows you to customize your cluster when it is created via a [yaml config file](https://kind.sigs.k8s.io/docs/user/configuration/#nodes). ([related blog post](https://dotnetninja.net/2021/03/running-a-multi-node-kubernetes-cluster-on-windows-with-kind/))
+
+```yaml title="./my-cluster-config.yaml"
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+- role: worker
+- role: worker
+- role: worker
+```
+
+`kind create cluster --name my-custom-kind-cluster --config ./my-cluster-config.yaml` - Create a KIND cluster based on the config file
+
 ## JQ
 
 JQ is a CLI tool that can be used to filter/format json. It can be used to select specific values from json output from the `kubectl get <resource>` command.

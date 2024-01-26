@@ -10,6 +10,16 @@
 
 `"*p` - paste from system clipboard
 
+## Motions
+
+`$` - Jump to end of line
+
+`0` (zero) - Jump to beginning of line
+
+`(` - Jump to previous paragraph (empty line)
+
+`)` - Jump to next paragraph (empty line)
+
 ## Regex
 
 `/test` -> `ENTER` - search file for instances of "test"
