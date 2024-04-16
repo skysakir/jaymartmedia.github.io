@@ -1,0 +1,120 @@
+---
+slug: input-validation-with-java
+title: Input validation with Java
+authors: jaymartin
+tags: [Java]
+---
+
+In this article I will be showing you how to perform validation on user input in Java. This article assumes that you have a basic understanding of Java and the Scanner class, and that you already have a compiler or IDE installed. I will be using JGrasp but you can use your favorite enviroment.
+
+<!--truncate-->
+
+<link rel="stylesheet" href="/legacy/jmm-video.css" />
+
+<div class="jmm-video-container">
+    <iframe class="jmm-video" src="https://www.youtube.com/embed/kLPBxtsf-b4" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<br />
+
+# Input Validation with Java
+
+:::info
+I have written this article in text form in order to save you time. In my experience, reading an article is often faster and/or more convenient (certainly quieter) than watching a video. If you would prefer to view this information in video form, you can click the video above, or [view the video on YouTube](https://www.youtube.com/watch?v=kLPBxtsf-b4).
+:::
+
+The purpose of user validation is to make sure that the user inputs a value that is both the correct type and a valid value. For example: the user should not be allowed to center a negative number for their age. The user should also not be allowed to enter a String such as "Hello" for their age. The age must be a positive integer, or float, depending on the use case.
+
+```js title="Code to read an int"
+// must have imported the scanner class
+// import java.util.*;
+public static int read_int(Scanner stdin, String prompt){
+  int i = -1;
+  while( i < 0 ){
+    System.out.print(prompt);
+ 
+    String input = stdin.nextLine();
+ 
+    try{
+      i = Integer.valueOf(input);
+    } catch (NumberFormatException e) {
+      i = -1;
+    }
+  }
+  return i;
+}// end read_int function
+```
+
+```js title="Code to read a float"
+// must have imported the scanner class
+// import java.util.*;
+public static float read_float(Scanner stdin, String prompt){
+   float i = -1;
+   while( i < 0 ){
+      System.out.print(prompt);
+ 
+      String input = stdin.nextLine();
+ 
+      try{
+         i = Float.valueOf(input);
+      } catch (NumberFormatException e) {
+         i = -1;
+      }
+   }
+   return i;
+}// end read_float function
+```
+
+**On line 3** the function accepts a scanner object in addition to a string.
+
+**On line 4** we set a variable i which will hold our data value returned by the user. We initailize it at an invalid value so that our while loop will run.
+
+**On line 5** we continue looping until i is greater than 0. This could easily be changed if we wanted the integer to be in a different range.
+
+**On line 6** we ask our user for input by printing the prompt.
+
+**On line 8** we accept input as a string using the scanner. Note that this MUST be .nextLine() we cannot use .nextInt() or .nextFloat() or we will get an error.
+
+**On line 11** we attempt to convert the input string into an integer inside a try/catch block.
+
+**On line 13** we set the variable i to an invalid value so the while loop will continue to run. Line 13 will only be executed if the input String cannot be converted to an integer.
+
+```js title="Using the read methods"
+// sets up a new scanner object
+Scanner stdin = new Scanner(System.in);
+ 
+// calls the read_int function and passes in the scanner object and a text prompt
+int age = read_int(stdin, "Enter your age: ");
+ 
+// outputs the users age to the console
+System.out.println("Your age is: "+age);
+```
+
+```js title="Full code example"
+import java.util.*;
+public class Demo {
+    public static void main(String[] args) {
+        Scanner stdin = new Scanner(System.in);
+ 
+        float f = read_float(stdin, "Enter a float");
+ 
+        System.out.println(f);
+    }
+ 
+    public static float read_float(Scanner stdin, String prompt) {
+        float i = -1;
+        while (i < 0) {
+            System.out.print(prompt);
+ 
+            String input = stdin.nextLine();
+ 
+            try {
+                i = Float.valueOf(input);
+            } catch (NumberFormatException e) {
+                i = -1;
+            }
+        }
+        return i;
+    }
+}
+```
