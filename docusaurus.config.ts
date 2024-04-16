@@ -105,6 +105,7 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()}, built with Docusaurus.`,
     },
     prism: {
+      additionalLanguages: ['bash', 'nginx'],
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
