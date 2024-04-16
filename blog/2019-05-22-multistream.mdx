@@ -1,0 +1,66 @@
+---
+slug: multistream-ffmpeg
+title: Multistream with OBS and FFMPEG
+authors: jaymartin
+tags: [FFMPEG, OBS]
+---
+
+This is a text companion to a YouTube video about streaming to multiple channels at once using OBS and FFMPEG.
+
+<!--truncate-->
+
+<link rel="stylesheet" href="/legacy/jmm-video.css" />
+
+<div class="jmm-video-container">
+    <iframe class="jmm-video" src="https://www.youtube.com/embed/6HAnG_BG3F4" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+# Multistream with OBS and FFMPEG
+
+:::info
+I have written this article in text form in order to save you time. In my experience, reading an article is often faster and/or more convenient (certainly quieter) than watching a video. If you would prefer to view this information in video form, you can click the video above, or [view the video on YouTube](https://www.youtube.com/watch?v=6HAnG_BG3F4).
+:::
+
+<a href="http://jaymartmedia.com/multistream/multistreamgui.exe"><button class="w3-button w3-green">Download MultiStream GUI</button></a>
+
+If you would like to use a batch script that you can audit, you can use the following script.
+
+```batch title="multistream.bat"
+@echo off
+ 
+:: Find more information at http://jaymartmedia.com/multistream/
+ 
+:: Change this to the path to the folder in which OBS saves the recording (should end in "\") make sure that there is no space beside the "=" sign
+:: Format looks like:     C:\Users\waver\Videos\
+set folder_path=C:\Users\waver\Videos\
+ 
+:: Change this to the RTMP url that you would like to stream to (should end in "/") make sure there is no space beside the "=" sign
+:: Common ingest servers
+:: YouTube:           rtmp://a.rtmp.youtube.com/live2/
+:: Twitch - Atlanta:  rtmp://live-atl.twitch.tv/app/
+:: Twitch - Dallas:   rtmp://live-dfw.twitch.tv/app/
+:: Twitch - San Fran: rtmp://live-sfo.twitch.tv/app/
+set rtmp_url=rtmp://a.rtmp.youtube.com/live2/
+ 
+:: Change this to your streaming key. Make sure there is no space beside the "=" sign
+set stream_key=xxxx-xxxx-xxxx-xxxx
+ 
+:: Loops through all the files in the folder in which OBS saves recordings
+:: Saves the most recently created file in the file_name variable
+for /f %%i in ('dir /b /s %folder_path%*.flv') do set file_name=%%i
+ 
+:: Outputs the name of the most recently created file (helps with debugging)
+echo The most recently created file is %file_name%
+ 
+:: Outputs the command that the script calls (helps with debugging)
+echo ffmpeg -re -i %file_name% -acodec copy -vcodec copy -f flv %rtmp_url%%stream_key%
+ 
+:: Calls the ffmpeg command
+ffmpeg -re -i %file_name% -acodec copy -vcodec copy -f flv %rtmp_url%%stream_key%
+ 
+:: Pauses so you can see the output
+pause
+```
+
+
+
