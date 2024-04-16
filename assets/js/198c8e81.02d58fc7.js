@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkjaymartmedia=self.webpackChunkjaymartmedia||[]).push([[1010],{6437:a=>{a.exports=JSON.parse('{"label":"OBS","permalink":"/blog/tags/obs","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);
