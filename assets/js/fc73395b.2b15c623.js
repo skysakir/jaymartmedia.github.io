@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkjaymartmedia=self.webpackChunkjaymartmedia||[]).push([[6412],{7025:a=>{a.exports=JSON.parse('{"label":"NGINX","permalink":"/blog/tags/nginx","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);
