@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkjaymartmedia=self.webpackChunkjaymartmedia||[]).push([[2535],{5641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Welcome to the blog (2023-12-31)","permalink":"/blog/welcome-to-the-blog","unlisted":false}]}')}}]);
