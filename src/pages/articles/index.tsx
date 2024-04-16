@@ -9,6 +9,7 @@
  * Legacy pages with text content have been stored in
  * /blog/*
  */
+import BrowserOnly from "@docusaurus/BrowserOnly";
 import Layout from "@theme/Layout";
 
 const indexMapping = new Map<string, string>();
@@ -24,7 +25,17 @@ indexMapping.set("9", "/articles/legacy/php-web-page/");
 indexMapping.set("10", "/blog/web-scraping-with-php/");
 indexMapping.set("11", "/blog/multistream-ffmpeg");
 
-export default function Articles () {
+export default function Page () {
+    return (
+        <Layout>
+            <BrowserOnly>
+                {() => <Articles />}
+            </BrowserOnly>
+        </Layout>
+    )
+}
+
+function Articles (): JSX.Element {
     const queryParams = new URLSearchParams(location.search);
     const id = queryParams.get('id');
     let redirected = false;
@@ -37,11 +48,9 @@ export default function Articles () {
     }
     
     return (
-        <Layout>
-            <ul>
-                {Array.from(indexMapping.values()).map(value => <Article path={value} />)}
-            </ul>
-        </Layout> 
+        <ul>
+            {Array.from(indexMapping.values()).map(value => <Article path={value} />)}
+        </ul>
     )
 }
 
