@@ -218,14 +218,53 @@ curl http://crewviewer.com
 
 NGINX comes with a default configuration. We can view the configuration which is stored in the "/etc/nginx/sites-enabled/default" file by running `cat /etc/nginx/sites-enabled/default`.
 
-```conf title="/etc/nginx/sites-enabled/default"
-TBD default nginx conf file
+```nginx title="/etc/nginx/sites-enabled/default"
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /var/www/html;
+
+    index index.html index.htm index.nginx-debian.html;
+
+    server_name _;
+
+    location / {
+            # First attempt to serve request as file, then
+            # as directory, then fall back to displaying a 404.
+            try_files $uri $uri/ =404;
+    }
+}
+
 ```
 
 We can see that the default configuration root path loads an html file from "TBD". We can view this default html file by running `cat TBD`.
 
-```html title="/TBD/TBD.html"
-TBD default html file
+```html title="/var/www/html/index.nginx-debian.html"
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to nginx!</title>
+        <style>
+            html { color-scheme: light dark; }
+            body { width: 35em; margin: 0 auto;
+            font-family: Tahoma, Verdana, Arial, sans-serif; }
+        </style>
+    </head>
+    <body>
+        <h1>Welcome to nginx!</h1>
+        <p>If you see this page, the nginx web server is successfully installed and
+        working. Further configuration is required.</p>
+
+        <p>For online documentation and support please refer to
+        <a href="http://nginx.org/">nginx.org</a>.<br/>
+        Commercial support is available at
+        <a href="http://nginx.com/">nginx.com</a>.</p>
+
+        <p><em>Thank you for using nginx.</em></p>
+    </body>
+</html>
+
 ```
 
 Notice that this is the same file that is returned by NGINX when we run `curl localhost`.
