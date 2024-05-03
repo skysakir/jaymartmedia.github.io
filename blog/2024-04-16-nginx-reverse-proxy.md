@@ -10,6 +10,18 @@ In this article we will set up an NGINX reverse proxy which will allow us to ser
 
 <!--truncate-->
 
+<link rel="stylesheet" href="/legacy/jmm-video.css" />
+
+<div class="jmm-video-container">
+    <iframe class="jmm-video" src="https://www.youtube.com/embed/m1MWjPKS5NM" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<br />
+
+:::info
+I have written this article in text form in order to save you time. In my experience, reading an article is often faster and/or more convenient (certainly quieter) than watching a video. If you would prefer to view this information in video form, you can click the video above, or [view the video on YouTube](https://www.youtube.com/watch?v=m1MWjPKS5NM).
+:::
+
 ## Overview
 
 - Pre-configuration:
