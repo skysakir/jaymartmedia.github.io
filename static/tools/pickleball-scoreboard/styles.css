@@ -1,0 +1,22 @@
+html, body {
+    background: #00ff00;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin:.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+p,li {
+    font-size: 1.5rem;
+}
+
+li input[type="checkbox"] {
+    transform: scale(1.5);
+}
+
+button {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
