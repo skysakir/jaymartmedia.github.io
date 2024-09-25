@@ -250,7 +250,7 @@ server {
 
 ```
 
-We can see that the default configuration root path loads an html file from "TBD". We can view this default html file by running `cat TBD`.
+We can see that the default configuration root path loads an html file from "/var/www/html/index.nginx-debian.html". We can view this default html file by running `cat /var/www/html/index.nginx-debian.html`.
 
 ```html title="/var/www/html/index.nginx-debian.html"
 <!DOCTYPE html>
