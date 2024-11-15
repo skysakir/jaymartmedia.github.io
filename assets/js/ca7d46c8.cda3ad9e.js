@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkjaymartmedia=self.webpackChunkjaymartmedia||[]).push([[1948],{7914:a=>{a.exports=JSON.parse('{"label":"Llama","permalink":"/blog/tags/llama","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

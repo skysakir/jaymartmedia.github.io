@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkjaymartmedia=self.webpackChunkjaymartmedia||[]).push([[4488],{7592:a=>{a.exports=JSON.parse('{"label":"Local","permalink":"/blog/tags/local","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);
