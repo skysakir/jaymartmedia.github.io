@@ -8,6 +8,8 @@ toc_max_heading_level: 4
 
 The [Llama AI model](https://www.llama.com/) is an open-source model built by Meta. It can be used similarly to how OpenAI's ChatGPT can be used. In this article we will run the Llama AI model locally via Docker. We will NOT configure Llama to use the GPU in this article.
 
+<!--truncate-->
+
 ## Overview
 
 First we will run an [Ollama](https://ollama.com/) Docker container. Ollama is used as a wrapper around the AI models themselves. Then we will add the llama 3.2 model to the Ollama container. Once the model is running, we will interact with the Llama via HTTP using the cURL command line tool. Additionally I will show you how to add a code AI model and interact with it. Finally we will run a UI to make it easier to interact with the AI models (more similar to the ChatGPT UI. 
