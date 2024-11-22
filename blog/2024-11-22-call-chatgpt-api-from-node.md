@@ -65,10 +65,11 @@ const completion = await openai.chat.completions.create({
 console.log(completion.choices[0].message);
 ```
 
-Add a start script to the package.json file.
+Add type module, and a start script to the package.json file.
 ```json title="package.json"
 ...
-    scripts: {
+    "type": "module",
+    "scripts": {
         "start": "node main.js"
     },
 ...
@@ -79,19 +80,33 @@ Now run the script by running:
 npm run start
 ```
 
-TODO: You should see an error mentioning no token set. We'll do that in the next step.
+You should see an error mentioning that there is no token set. We'll do that in the next step.
+
+```txt
+OpenAIError: The OPENAI_API_KEY environment variable is missing or empty; either provide it, or instantiate the OpenAI client with an apiKey option, like new OpenAI({ apiKey: 'My API Key' }).
+```
 
 ## Create OpenAI account, purchase credits, and create API key
 
 Now we need to create an account, purchase some credits, and get an API key in order to authenticate with the OpenAI API.
 
 To do this:
-1. Create an OpenAI account at TODO
-2. Click on the "purchase credits" button TODO
-3. You will need to purchase $5 or more credits. Unfortunately OpenAI no longer offers free promotional credits. You can view pricing info for API calls here: https://openai.com/api/pricing/
-4. Click the "Create API key" TODO
-5. Create an web app API key TODO
-6. Copy the API key and paste it into a ".env" file (yes, the filename should start with a period/full-stop)
+1. Create an OpenAI account by
+   1. Going to https://platform.openai.com/
+   2. Click on Sign Up or Log In
+   3. Create an account or connect with with one of the other supported accounts
+2. Purchase some credits
+   1. Click on the gear cog in the top right corner to open your settings
+   2. Click "Billing" on the left sidebar
+   3. Add to credit balance
+   4. Purchase $5 or more worth of credits. Unfortunately OpenAI no longer offers free promotional credits. You can view pricing info for API calls here: https://openai.com/api/pricing/
+3. Create an API secret key
+   1. Click "API keys" on the left sidebar
+   2. Click "+ Create new secret key" in the top right corner
+   3. Enter a name for your API secret key
+   4. Click "Create secret key"
+   5. Copy the API secret key
+4. Copy the API key and paste it into a ".env" file (yes, the filename should start with a period/full-stop)
     ```txt title=".env"
     OPENAI_API_KEY=your_api_key_here
     ```
@@ -118,7 +133,7 @@ Now run the script by running:
 npm run start
 ```
 
-The script should now succeed and display the response from ChatGPT. If tbe script returns with an error then you can refer to the [common issues](#common-issues) section.
+The script should now succeed and display the response from ChatGPT. If the script returns with an error then you can refer to the [common issues](#common-issues) section.
 
 ## Changing the model and adjusting the prompt
 
@@ -126,7 +141,8 @@ You likely want the model to do something other than generating a haiku about re
 
 You may also want to change the AI model that is being used. You can do this by changing the model field. Available models can be found in the [models section of the](https://platform.openai.com/docs/models) OpenAI documentation.
 
-```js
+```js title="main.js"
+...
 const userPrompt = "programming"; // Could be populated from cli arguments, HTTP request body, or other user input
 const completion = await openai.chat.completions.create({
     model: "gpt-4o-mini", // Change the model (changes performance and pricing): https://platform.openai.com/docs/models
@@ -138,6 +154,7 @@ const completion = await openai.chat.completions.create({
         },
     ],
 });
+...
 ```
 
 ## Conclusion
@@ -150,8 +167,8 @@ In this article we created an NPM project and Node script which uses the OpenAI 
 
 If you don't have a token, or your token is set incorrectly, you may see an error similar to this one:
 
-```shell
-TODO
+```txt
+OpenAIError: The OPENAI_API_KEY environment variable is missing or empty; either provide it, or instantiate the OpenAI client with an apiKey option, like new OpenAI({ apiKey: 'My API Key' }).
 ```
 
 If you see this message then you will need to [generate a token, set it in your ".env" file](#create-openai-account-purchase-credits-and-create-api-key) and [use the token in your script](#use-the-api-key-in-the-node-script).
@@ -164,8 +181,8 @@ Things to check:
 ### No funds
 If you run an API call before purchasing credits you may see an error similar to this one:
 
-```shell
-TODO
+```txt
+RateLimitError: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.
 ```
 
 If you see this message then you will need to [purchase some credits](#create-openai-account-purchase-credits-and-create-api-key). You may also need to generate a new API token and set it in your ".env" file after purchasing tokens. Per my testing, tokens created BEFORE credits are purchased do NOT work even after credits have been purchased.
