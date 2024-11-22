@@ -2,7 +2,7 @@
 slug: running-llama-ai-model-locally
 title: Running Llama AI Model Locally
 authors: jaymartin
-tags: [AI, Llama, Local]
+tags: [AI, Llama, Self hosting, Local]
 toc_max_heading_level: 4
 ---
 
