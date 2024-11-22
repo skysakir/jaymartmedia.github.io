@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkjaymartmedia=self.webpackChunkjaymartmedia||[]).push([[3579],{4386:a=>{a.exports=JSON.parse('{"label":"Self hosting","permalink":"/blog/tags/self-hosting","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

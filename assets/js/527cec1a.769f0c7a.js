@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkjaymartmedia=self.webpackChunkjaymartmedia||[]).push([[3493],{8917:a=>{a.exports=JSON.parse('{"label":"OpenAI","permalink":"/blog/tags/open-ai","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

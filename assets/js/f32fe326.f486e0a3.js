@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkjaymartmedia=self.webpackChunkjaymartmedia||[]).push([[8843],{4634:a=>{a.exports=JSON.parse('{"label":"AI","permalink":"/blog/tags/ai","allTagsPath":"/blog/tags","count":2,"unlisted":false}')}}]);
