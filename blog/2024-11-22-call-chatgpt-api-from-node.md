@@ -27,8 +27,8 @@ I recommend using NVM or FNM to manage Node and NPM
 
 Once you have Node/NPM installed, make a new directory where you would like to put your code:
 ```shell
-mkdir openapi-example
-cd openapi-example
+mkdir openai-example
+cd openai-example
 ```
 
 Then create the NPM project
@@ -38,9 +38,9 @@ npm init -y
 
 ## Setup Node script
 
-You can refer to the OpenAPI quickstart guide for the latest instructions, or follow the steps below: https://platform.openai.com/docs/quickstart
+You can refer to the OpenAI quickstart guide for the latest instructions, or follow the steps below: https://platform.openai.com/docs/quickstart
 
-Add the openapi library:
+Add the openai library:
 ```shell
 npm install openai
 ```
