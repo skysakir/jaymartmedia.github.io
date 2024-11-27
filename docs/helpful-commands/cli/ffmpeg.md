@@ -28,6 +28,10 @@ Use `-vf "transpose=2,transpose=2"` for 180 degrees.
 
 src: https://stackoverflow.com/a/9570992
 
+## Crop video
+
+`ffmpeg -i input.mp4 -filter:v "crop=w:h:x:y" output.mp4` - replace `crop=w:h:x:y` with something like `crop=1920:1080:0:0` 
+
 ## Gif
 
 ### Convert video to gif

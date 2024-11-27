@@ -95,3 +95,8 @@ echo -n "Enter secret: "   # echo text with no newline
 read -s secret             # read in secret without showing chars
 echo $secret               # do something with secret value (defo don't echo it)
 ```
+
+Read a secret value, base64 encode it, and save in .env file. This can be useful if you want to convert to base64, but don't want your secret visible in history
+```sh
+read -s secret && echo -n $secret | base64 > .env
+```
