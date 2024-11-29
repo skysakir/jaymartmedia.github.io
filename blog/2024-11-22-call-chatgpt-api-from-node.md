@@ -12,6 +12,18 @@ This could be useful if you want to build a website or CLI tool that takes advan
 
 <!--truncate-->
 
+<link rel="stylesheet" href="/legacy/jmm-video.css" />
+
+<div class="jmm-video-container">
+    <iframe class="jmm-video" src="https://www.youtube.com/embed/dWZkQdD9hdE" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<br />
+
+:::info
+I have written this article in text form in order to save you time. In my experience, reading an article is often faster and/or more convenient (certainly quieter) than watching a video. If you would prefer to view this information in video form, you can click the video above, or [view the video on YouTube](https://www.youtube.com/watch?v=dWZkQdD9hdE).
+:::
+
 ## Overview
 
 We'll start out by setting up a new NPM project. Then we'll add the OpenAI library to our project and copy some code from their quickstart guide (https://platform.openai.com/). And finally we'll create an OpenAI account, create an API key, and buy some credits so we can use the API. I will say upfront, unfortunately we will need to buy at least $5 worth of credits to use the API. The nice thing is, those credits should last for many thousands of API calls (https://openai.com/api/pricing/).
