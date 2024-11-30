@@ -6,7 +6,7 @@ tags: [AI, Llama, Self hosting, Local]
 toc_max_heading_level: 4
 ---
 
-The [Llama AI model](https://www.llama.com/) is an open-source model built by Meta. It can be used similarly to how OpenAI's ChatGPT can be used. In this article we will run the Llama AI model locally via Docker. We will NOT configure Llama to use the GPU in this article.
+The [Llama AI model](https://www.llama.com/) is a free, self-hostable AI model built by Meta. It can be used similarly to how OpenAI's ChatGPT can be used. In this article we will run the Llama AI model locally via Docker. We will NOT configure Llama to use the GPU in this article.
 
 <!--truncate-->
 
