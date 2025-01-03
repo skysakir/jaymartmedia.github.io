@@ -7,7 +7,7 @@ import { Grid } from './Grid';
 export type FilterTypes = "name" | "resource" | "tag" | "hide non-matching";
 
 export default function App() {
-  const [searchTerm, setSearchTerm] = useState<string>('car');
+  const [searchTerm, setSearchTerm] = useState<string>('');
   const [enabledFilters, setEnabledFilters] = useState<FilterTypes[]>(['name', 'resource', 'tag']);
   const grids: CraftableItem[][][] = [backpackCraftables, smallCraftables, mediumCraftables, largeCraftables];
 
