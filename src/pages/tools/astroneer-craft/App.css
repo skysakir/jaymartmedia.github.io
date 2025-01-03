@@ -1,0 +1,14 @@
+:root {
+  --backgroundPrimary: #002CDC;
+  --backgroundSecondary: #0053DB;
+  --accentPrimary: #2b87f0; /*#00C7D3*/
+  --textPrimary: #E9E7E6;
+  --rejectPrimary: #FE78F5;
+  --consoleBorderDark: #545C65;
+  --consoleBorderLight: #8F959A;
+  --font: Verdana, Arial, serif;
+}
+
+/* body {
+  background: var(--backgroundPrimary);
+} */
