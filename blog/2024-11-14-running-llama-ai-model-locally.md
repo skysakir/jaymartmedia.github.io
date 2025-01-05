@@ -10,6 +10,18 @@ The [Llama AI model](https://www.llama.com/) is a free, self-hostable AI model b
 
 <!--truncate-->
 
+<link rel="stylesheet" href="/legacy/jmm-video.css" />
+
+<div class="jmm-video-container">
+    <iframe class="jmm-video" src="https://www.youtube.com/embed/PYQ3GarqxrQ" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<br />
+
+:::info
+I have written this article in text form in order to save you time. In my experience, reading an article is often faster and/or more convenient (certainly quieter) than watching a video. If you would prefer to view this information in video form, you can click the video above, or [view the video on YouTube](https://www.youtube.com/watch?v=PYQ3GarqxrQ).
+:::
+
 ## Overview
 
 First we will run an [Ollama](https://ollama.com/) Docker container. Ollama is used as a wrapper around the AI models themselves. Then we will add the llama 3.2 model to the Ollama container. Once the model is running, we will interact with the Llama via HTTP using the cURL command line tool. Additionally I will show you how to add a code AI model and interact with it. Finally we will run a UI to make it easier to interact with the AI models (more similar to the ChatGPT UI. 
