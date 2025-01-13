@@ -1,15 +1,15 @@
 // import { FilterTypes } from "../App";
 // import { CraftableItem } from "../data/crafting";
 
-import { FilterTypes, GridTypes } from ".";
-import { CraftableItem } from "./crafting";
+import { FilterTypes } from ".";
+import { CraftableItem, ResourceItem } from "./crafting";
 
 
 type Props = {
     searchTerm: string;
-    items: CraftableItem[][],
+    items: Array<Array<CraftableItem | ResourceItem>>,
     enabledFilters: FilterTypes[];
-    gridType: GridTypes;
+    gridName: string;
 }
 
 export function Grid(props: Props) {
@@ -30,7 +30,7 @@ export function Grid(props: Props) {
                 marginBottom: ".25rem",
                 textTransform: "uppercase"
             }}
-            >{props.gridType}</h2>
+            >{props.gridName}</h2>
             {/* for each row */}
             {props.items.map(row => (
                 <div style={{
@@ -48,7 +48,7 @@ export function Grid(props: Props) {
 }
 
 type ItemProps = {
-    item: CraftableItem;
+    item: CraftableItem | ResourceItem;
     searchTerm: string;
     enabledFilters: FilterTypes[];
 }
@@ -57,7 +57,8 @@ function Item(props: ItemProps) {
     const highlighted = props.searchTerm.length === 0 ||
         (
             (props.enabledFilters.includes('name') &&  item.name.toLowerCase().includes(props.searchTerm.toLowerCase()))
-            || (props.enabledFilters.includes('resource') && item.resources.some(resource => resource.resource.toLowerCase().includes(props.searchTerm.toLowerCase())))
+            || ('resources' in item && props.enabledFilters.includes('resource') && item.resources.some(resource => resource.resource.toLowerCase().includes(props.searchTerm.toLowerCase())))
+            || ('planets' in item && props.enabledFilters.includes('planet') && item.planets.some(planet => planet.name.toLowerCase().includes(props.searchTerm.toLowerCase())))
             || (props.enabledFilters.includes('tag') && (item.tags && item.tags.some(tag => tag.toLowerCase().includes(props.searchTerm.toLowerCase()))))
         );
 
@@ -92,8 +93,13 @@ function Item(props: ItemProps) {
             }}>{item.name}</h3>
             <span>
                 {
-                    item.resources.map(resource => (
+                    'resources' in item && item.resources.map(resource => (
                             `${resource.count} ${resource.resource}`
+                    )).join(", ")
+                }
+                {
+                    'planets' in item && item.planets.map(planet => (
+                            `${planet.name} in ${planet.location}`
                     )).join(", ")
                 }
             </span>

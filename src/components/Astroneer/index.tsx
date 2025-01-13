@@ -1,15 +1,16 @@
 // import './App.css';
 import { useState } from 'react';
 import "./App.css"
-import { backpackCraftables, smallCraftables, CraftableItem, mediumCraftables, largeCraftables } from './crafting';
+import { backpackCraftables, smallCraftables, CraftableItem, mediumCraftables, largeCraftables, naturalResources, refinedResources, atmosphericResources, compositeResources, ResourceItem } from './crafting';
 import { Grid } from './Grid';
 
-export type FilterTypes = "name" | "resource" | "tag" | "hide non-matching";
+export type FilterTypes = "name" | "resource" | "planet" | "tag" | "hide non-matching";
 
 export default function App() {
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const [enabledFilters, setEnabledFilters] = useState<FilterTypes[]>(['name', 'resource', 'tag']);
-  const grids: CraftableItem[][][] = [backpackCraftables, smallCraftables, mediumCraftables, largeCraftables];
+  const [enabledFilters, setEnabledFilters] = useState<FilterTypes[]>(['name', 'resource', 'planet', 'tag']);
+  const craftingGrids: CraftableItem[][][] = [backpackCraftables, smallCraftables, mediumCraftables, largeCraftables];
+  const resourceGrids: Array<Array<Array<CraftableItem | ResourceItem>>> = [naturalResources, refinedResources, atmosphericResources, compositeResources];
 
   function addFilter(filterType: FilterTypes) {
     setEnabledFilters(cur => [...cur, filterType]);
@@ -29,7 +30,13 @@ export default function App() {
       }}>
         <div
             style={{
-              fontSize: '3rem'
+              fontSize: '3rem',
+              position: 'sticky',
+              top: "0px",
+              background: "var(--backgroundPrimary)",
+              borderBottom: "2px solid var(--accentPrimary)",
+              paddingBottom: "1rem",
+              marginBottom: "1rem"
             }}
         >
           <input style={{
@@ -48,6 +55,11 @@ export default function App() {
             removeFilter={removeFilter}
           ></FilterCheckbox>
           <FilterCheckbox
+            filterType="planet"
+            addFilter={addFilter}
+            removeFilter={removeFilter}
+          ></FilterCheckbox>
+          <FilterCheckbox
             filterType="tag"
             addFilter={addFilter}
             removeFilter={removeFilter}
@@ -59,10 +71,30 @@ export default function App() {
             defaultValue={false}
           ></FilterCheckbox>
         </div>
-        <div>
-          {grids.map((gridItems, idx) => (
+        <div
+          style={{
+            clear: 'both'
+          }}
+        >
+          <h2>Craftables</h2>
+          {craftingGrids.map((gridItems, idx) => (
             <Grid
-              gridType={mapGridNumToString(idx)}
+              gridName={mapCraftingGridNumToName(idx)}
+              searchTerm={searchTerm}
+              enabledFilters={enabledFilters}
+              items={gridItems}
+            />
+          ))}
+        </div>
+        <div
+          style={{
+            clear: 'both'
+          }}
+        >
+          <h2>Resources</h2>
+          {resourceGrids.map((gridItems, idx) => (
+            <Grid
+              gridName={mapResourceGridNumToName(idx)}
               searchTerm={searchTerm}
               enabledFilters={enabledFilters}
               items={gridItems}
@@ -106,11 +138,17 @@ function FilterCheckbox(props: {
   )
 }
 
-export type GridTypes = 'Backpack' | 'Small' | 'Medium' | 'Large';
 
-function mapGridNumToString(num: number): GridTypes {
+function mapCraftingGridNumToName(num: number): string {
   if (num === 0) return 'Backpack';
   if (num === 1) return 'Small';
   if (num === 2) return 'Medium';
   if (num === 3) return 'Large';
+}
+
+function mapResourceGridNumToName(num: number): string {
+  if (num === 0) return 'Natural Resources';
+  if (num === 1) return 'Refined Resources';
+  if (num === 2) return 'Atmospheric Resources';
+  if (num === 3) return 'Composite Resources';
 }
