@@ -600,7 +600,7 @@ export const mediumCraftables: CraftableItem[][] = [
         },
         {
             name: "Large Storage",
-            resources: [{ resource: "Ceramic", count: 1 }],
+            resources: [{ resource: "Ceramic", count: 3 }],
             researchPoints: 2000
         },
         {
