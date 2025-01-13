@@ -1,6 +1,10 @@
-type ResourceName = "Aluminum" | "Aluminum Alloy" | "Ammonium" | "Astronium" | "Ceramic" | "Compound" | "Copper" | "Diamond" | "Exo Chip" | "Explosive Powder"
-| "Glass" | "Graphene" | "Graphite" | "Iron" | "Lithium" | "Nanocarbon Alloy" | "Organic" | "Plastic" | "Quartz" | "Resin" | "Rubber" | "Scrap" | "Silicone" | "Soil" | "Steel" | "Titanium" | "Titanium Alloy"
-| "Tungsten" | "Tungsten Carbide" | "Zinc";
+type ResourceName = "Aluminum" | "Aluminum Alloy" | "Ammonium" | "Argon" | "Astronium" | "Carbon" | "Ceramic" | "Clay" | "Compound" | "Copper" | "Diamond" | "Exo Chip" | "Explosive Powder"
+    | "Glass" | "Graphene" | "Graphite" | "Helium" | "Hematite" | "Hydrazine" | "Hydrogen" | "Iron" | "Laterite" | "Lithium" | "Malachite" | "Methane" | "Nanocarbon Alloy" | "Nitrogen" | "Organic" | "Plastic" | "Quartz" | "Resin" | "Rubber" | "Scrap" | "Silicone" | "Soil" | "Sphalerite" | "Steel" | "Sulfur" | "Titanium" | "Titanium Alloy"
+    | "Titanite" | "Tungsten" | "Tungsten Carbide" | "Wolfromite" | "Zinc";
+
+type PlanetName = "Atrox" | "Colidor" | "Desolo" | "Glacio" | "Novus" | "Sylva" | "Vesania" | "All Planets";
+
+type LocationName = "Caves" | "Core" | "Everywhere" | "Mountains" | "Surface" | "unknown";
 
 type Resource = {
     name: string;
@@ -12,8 +16,20 @@ export type CraftableItem = {
     researchPoints?: number;
     resources: Array<
         {
-            resource: ResourceName,
-            count: number
+            resource: ResourceName;
+            count: number;
+        }
+    >;
+    tags?: string[];
+}
+
+export type ResourceItem = {
+    name: string;
+    planets: Array<
+        {
+            name: PlanetName;
+            location: LocationName;
+            atmosphericConcentration?: number;
         }
     >;
     tags?: string[];
@@ -314,7 +330,7 @@ export const smallCraftables: CraftableItem[][] = [
         },
         {
             name: "Splitter",
-            resources: [{ resource: "Copper", count: 1 },{ resource: "Graphite", count: 1 }],
+            resources: [{ resource: "Copper", count: 1 }, { resource: "Graphite", count: 1 }],
             researchPoints: 1000,
             tags: ["power"]
         },
@@ -322,31 +338,31 @@ export const smallCraftables: CraftableItem[][] = [
     [
         {
             name: "Medium Generator",
-            resources: [{ resource: "Aluminum", count: 1 },{ resource: "Tungsten", count: 1 }],
+            resources: [{ resource: "Aluminum", count: 1 }, { resource: "Tungsten", count: 1 }],
             researchPoints: 2000,
             tags: ["power"]
         },
         {
             name: "Medium Solar Panel",
-            resources: [{ resource: "Copper", count: 1 },{ resource: "Glass", count: 1 }],
+            resources: [{ resource: "Copper", count: 1 }, { resource: "Glass", count: 1 }],
             researchPoints: 2000,
             tags: ["power"]
         },
         {
             name: "Medium Wind Turbine",
-            resources: [{ resource: "Aluminum", count: 1 },{ resource: "Ceramic", count: 1 }],
+            resources: [{ resource: "Aluminum", count: 1 }, { resource: "Ceramic", count: 1 }],
             researchPoints: 2500,
             tags: ["power"]
         },
         {
             name: "Medium Battery",
-            resources: [{ resource: "Lithium", count: 1 },{ resource: "Zinc", count: 1 }],
+            resources: [{ resource: "Lithium", count: 1 }, { resource: "Zinc", count: 1 }],
             researchPoints: 3750,
             tags: ["power"]
         },
         {
             name: "RTG",
-            resources: [{ resource: "Nanocarbon Alloy", count: 1 },{ resource: "Lithium", count: 1 }],
+            resources: [{ resource: "Nanocarbon Alloy", count: 1 }, { resource: "Lithium", count: 1 }],
             researchPoints: 12500,
             tags: ["power"]
         },
@@ -835,7 +851,7 @@ export const largeCraftables: CraftableItem[][] = [
             resources: [{ resource: "Exo Chip", count: 2 }, { resource: "Titanium Alloy", count: 1 }, { resource: "Ceramic", count: 1 }],
             researchPoints: 5000,
             tags: ["vehicle", "rocket"]
-            
+
         },
     ],
     [
@@ -844,6 +860,209 @@ export const largeCraftables: CraftableItem[][] = [
             resources: [{ resource: "Titanium", count: 2 }, { resource: "Copper", count: 1 }, { resource: "Quartz", count: 1 }],
             researchPoints: 2500,
             tags: ["vehicle", "train"]
+        },
+    ]
+];
+
+export const naturalResources: ResourceItem[][] = [
+    [
+        {
+            name: "Ammonium",
+            planets: [{ name: "All Planets", location: "Everywhere" }]
+        },
+        {
+            name: "Astronium",
+            planets: [{ name: "All Planets", location: "Core" }]
+        },
+        {
+            name: "Clay",
+            planets: [{ name: "All Planets", location: "Everywhere" }]
+        },
+        {
+            name: "Compound",
+            planets: [{ name: "All Planets", location: "Everywhere" }]
+        },
+        {
+            name: "Graphite",
+            planets: [{ name: "All Planets", location: "Everywhere" }]
+        },
+        {
+            name: "Hematite",
+            planets: [{ name: "Glacio", location: "Surface" }, { name: "Novus", location: "Caves" }]
+        },
+        {
+            name: "Laterite",
+            planets: [{ name: "All Planets", location: "Caves" }]
+        },
+        {
+            name: "Lithium",
+            planets: [{ name: "Novus", location: "Caves" }, { name: "Vesania", location: "Mountains" }]
+        },
+        {
+            name: "Malachite",
+            planets: [{ name: "Colidor", location: "Caves" }, { name: "Sylva", location: "Mountains" }]
+        },
+        {
+            name: "Organic",
+            planets: [{ name: "All Planets", location: "Everywhere" }]
+        },
+        {
+            name: "Quartz",
+            planets: [{ name: "All Planets", location: "Caves" }]
+        },
+        {
+            name: "Resin",
+            planets: [{ name: "All Planets", location: "Everywhere" }]
+        },
+        {
+            name: "Sphalerite",
+            planets: [{ name: "Desolo", location: "Mountains" }, { name: "Sylva", location: "Caves" }]
+        },
+        {
+            name: "Titanite",
+            planets: [{ name: "Glacio", location: "Caves" }, { name: "Vesania", location: "Mountains" }]
+        },
+        {
+            name: "Wolframite",
+            planets: [{ name: "Colidor", location: "Mountains" }, { name: "Desolo", location: "Caves" }]
+        },
+    ]
+];
+
+export const refinedResources: CraftableItem[][] = [
+    [
+        {
+            name: "Aluminum",
+            resources: [{ resource: "Laterite", count: 1 }]
+        },
+        {
+            name: "Carbon",
+            resources: [{ resource: "Organic", count: 1 }]
+        },
+        {
+            name: "Ceramic",
+            resources: [{ resource: "Clay", count: 1 }]
+        },
+        {
+            name: "Copper",
+            resources: [{ resource: "Malachite", count: 1 }]
+        },
+        {
+            name: "Glass",
+            resources: [{ resource: "Quartz", count: 1 }]
+        },
+        {
+            name: "Iron",
+            resources: [{ resource: "Hematite", count: 1 }]
+        },
+        {
+            name: "Titanium",
+            resources: [{ resource: "Titanite", count: 1 }]
+        },
+        {
+            name: "Tungsten",
+            resources: [{ resource: "Wolfromite", count: 1 }]
+        },
+        {
+            name: "Zinc",
+            resources: [{ resource: "Sphalerite", count: 1 }]
+        },
+    ]
+];
+
+export const atmosphericResources: ResourceItem[][] = [
+    [
+        {
+            name: "Argon",
+            planets: [{ name: "Vesania", location: "unknown", atmosphericConcentration: 123 }, { name: "Glacio", location: "unknown", atmosphericConcentration: 123 }]
+        },
+        {
+            name: "Helium",
+            planets: [{ name: "Atrox", location: "unknown", atmosphericConcentration: 123 }]
+        },
+        {
+            name: "Hydrogen",
+            planets: [
+                { name: "Colidor", location: "unknown", atmosphericConcentration: 123 },
+                { name: "Novus", location: "unknown", atmosphericConcentration: 123 },
+                { name: "Sylva", location: "unknown", atmosphericConcentration: 123 },
+                { name: "Vesania", location: "unknown", atmosphericConcentration: 123 },
+            ]
+        },
+        {
+            name: "Methane",
+            planets: [
+                { name: "Atrox", location: "unknown", atmosphericConcentration: 123 },
+                { name: "Novus", location: "unknown", atmosphericConcentration: 123 }
+            ]
+        },
+        {
+            name: "Nitrogen",
+            planets: [
+                { name: "Atrox", location: "unknown", atmosphericConcentration: 123 },
+                { name: "Sylva", location: "unknown", atmosphericConcentration: 123 },
+                { name: "Vesania", location: "unknown", atmosphericConcentration: 123 },
+            ]
+        },
+        {
+            name: "Sulfur",
+            planets: [
+                { name: "Atrox", location: "unknown", atmosphericConcentration: 123 },
+                { name: "Colidor", location: "unknown", atmosphericConcentration: 123 }
+            ]
+        },
+    ]
+];
+
+export const compositeResources: CraftableItem[][] = [
+    [
+        {
+            name: "Aluminum Alloy",
+            resources: [{ resource: "Aluminum", count: 1 }, { resource: "Copper", count: 1 }]
+        },
+        {
+            name: "Diamond",
+            resources: [{ resource: "Graphene", count: 2 }]
+        },
+        {
+            name: "Explosive Powder",
+            resources: [{ resource: "Carbon", count: 2 }, { resource: "Sulfur", count: 1 }]
+        },
+        {
+            name: "Hydrazine",
+            resources: [{ resource: "Ammonium", count: 2 }, { resource: "Hydrogen", count: 1 }]
+        },
+        {
+            name: "Graphene",
+            resources: [{ resource: "Graphite", count: 1 }, { resource: "Hydrazine", count: 1 }]
+        },
+        {
+            name: "Nanocarbon Alloy",
+            resources: [{ resource: "Titanium Alloy", count: 1 }, { resource: "Steel", count: 1 }, { resource: "Helium", count: 1 }]
+        },
+        {
+            name: "Plastic",
+            resources: [{ resource: "Carbon", count: 1 }, { resource: "Compound", count: 1 }]
+        },
+        {
+            name: "Rubber",
+            resources: [{ resource: "Organic", count: 1 }, { resource: "Resin", count: 1 }]
+        },
+        {
+            name: "Silicone",
+            resources: [{ resource: "Resin", count: 1 }, { resource: "Quartz", count: 1 }, { resource: "Methane", count: 1 }]
+        },
+        {
+            name: "Steel",
+            resources: [{ resource: "Iron", count: 1 }, { resource: "Carbon", count: 1 }, { resource: "Argon", count: 1 }]
+        },
+        {
+            name: "Titanium Alloy",
+            resources: [{ resource: "Titanium", count: 1 }, { resource: "Graphene", count: 1 }, { resource: "Nitrogen", count: 1 }]
+        },
+        {
+            name: "Tungsten Carbide",
+            resources: [{ resource: "Tungsten", count: 1 }, { resource: "Carbon", count: 1 }]
         },
     ]
 ];
