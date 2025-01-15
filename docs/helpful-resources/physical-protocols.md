@@ -1,0 +1,1 @@
+How does the USB protocol work over the wire: https://youtu.be/wdgULBpRoXk
