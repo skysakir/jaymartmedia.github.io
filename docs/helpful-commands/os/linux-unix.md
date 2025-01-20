@@ -88,6 +88,8 @@ Resources:
 
 `printf '%-32s' "Here is text!" >> /dev/ttyS3` print a string padded with spaces to 32char and send to serial device
 
+`date -u --iso-8601=s` - get current UTC date and time in ISO-8601 to second precision, outputs as `2025-01-20T04:24:03+00:00`
+
 Read in a secret value (such as a password) from the command line so that it doesn't appear in shell history:
 ```sh
 #!/bin/sh
