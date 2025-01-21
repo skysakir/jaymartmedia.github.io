@@ -4,6 +4,7 @@ title: Setting up an NGINX reverse proxy
 authors: jaymartin
 tags: [NGINX, Linode]
 toc_max_heading_level: 4
+image: https://learn.jaymartmedia.com/assets/images/reverse-proxy-architecture-d9a9aaae30b33bcaf5b24a284f21b236.svg
 ---
 
 In this article we will set up an NGINX reverse proxy which will allow us to serve multiple sites on port 80 and 443 (default http/https ports) from a single server.
